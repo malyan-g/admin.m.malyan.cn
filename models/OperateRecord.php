@@ -77,6 +77,8 @@ class OperateRecord extends \yii\db\ActiveRecord
             'admin_id' => '操作人',
             'ip' => 'IP',
             'created_at' => '创建时间',
+            'startDate' => '开始日期',
+            'endDate' => '结束日期'
         ];
     }
 
