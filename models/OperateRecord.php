@@ -3,7 +3,7 @@
 namespace app\models;
 
 use Yii;
-use app\components\events\OperateLogEvent;
+use app\components\events\OperateRecordEvent;
 /**
  * This is the model class for table "{{%operate_record}}".
  *
@@ -113,9 +113,9 @@ class OperateRecord extends \yii\db\ActiveRecord
 
     /**
      * 操作日志记录
-     * @param OperateLogEvent $event
+     * @param OperateRecordEvent $event
      */
-    public static function record(OperateLogEvent $event)
+    public static function record(OperateRecordEvent $event)
     {
         try{
             $model = new OperateRecord();

@@ -11,8 +11,8 @@ namespace app\components\behaviors;
 
 use app\models\OperateRecord;
 use yii\base\Behavior;
-use app\models\OperateLog;
-use app\components\events\OperateLogEvent;
+use app\models\OperateRecord;
+use app\components\events\OperateRecordEvent;
 
 class AppBehavior extends Behavior
 {
@@ -22,7 +22,7 @@ class AppBehavior extends Behavior
     public function events()
     {
         return [
-            OperateLogEvent::EVENT_NAME => [OperateRecord::className(), 'record'],
+            OperateRecordEvent::EVENT_NAME => [OperateRecord::className(), 'record'],
         ];
     }
 }

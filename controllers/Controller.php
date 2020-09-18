@@ -12,10 +12,10 @@ use app\models\AuthItem;
 use app\models\AuthItemChild;
 use Yii;
 use yii\helpers\ArrayHelper;
-use app\models\OperateLog;
+use app\models\OperateRecord;
 use yii\web\NotFoundHttpException;
 use app\components\behaviors\AppBehavior;
-use app\components\events\OperateLogEvent;
+use app\components\events\OperateRecordEvent;
 
 class Controller extends \yii\web\Controller
 {
@@ -31,13 +31,13 @@ class Controller extends \yii\web\Controller
     public $operateDescribe = '';
 
     protected $operateAction = [
-        'create' => OperateLog::EVENT_TYPE_CREATE,
-        'update' => OperateLog::EVENT_TYPE_UPDATE,
-        'delete' => OperateLog::EVENT_TYPE_DELETE,
-        'auth' => OperateLog::EVENT_TYPE_AUTH,
-        'disable' => OperateLog::EVENT_TYPE_DISABLE,
-        'enable' => OperateLog::EVENT_TYPE_ENABLE,
-        'sort' => OperateLog::EVENT_TYPE_SORT,
+        'create' => OperateRecord::EVENT_TYPE_CREATE,
+        'update' => OperateRecord::EVENT_TYPE_UPDATE,
+        'delete' => OperateRecord::EVENT_TYPE_DELETE,
+        'auth' => OperateRecord::EVENT_TYPE_AUTH,
+        'disable' => OperateRecord::EVENT_TYPE_DISABLE,
+        'enable' => OperateRecord::EVENT_TYPE_ENABLE,
+        'sort' => OperateRecord::EVENT_TYPE_SORT,
     ];
 
     /**
@@ -112,12 +112,12 @@ class Controller extends \yii\web\Controller
     protected function operateRecord()
     {
         if($this->operateId !== null){
-            $operateLogEvent = new OperateLogEvent();
-            $operateLogEvent->operateId = $this->operateId;
-            $operateLogEvent->operateType = $this->operateType;
-            $operateLogEvent->operateModule = $this->operateModule;
-            $operateLogEvent->operateDescribe = $this->operateDescribe;
-            $this->trigger(OperateLogEvent::EVENT_NAME, $operateLogEvent);
+            $OperateRecordEvent = new OperateRecordEvent();
+            $OperateRecordEvent->operateId = $this->operateId;
+            $OperateRecordEvent->operateType = $this->operateType;
+            $OperateRecordEvent->operateModule = $this->operateModule;
+            $OperateRecordEvent->operateDescribe = $this->operateDescribe;
+            $this->trigger(OperateRecordEvent::EVENT_NAME, $OperateRecordEvent);
         }
     }
 }

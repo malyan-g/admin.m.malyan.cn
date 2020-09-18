@@ -12,7 +12,7 @@ namespace app\components\events;
 use yii\base\Event;
 
 /**
- * Class OperateLogEvent
+ * Class OperateRecordEvent
  * @package app\components\events
  *
  * @property integer $operateId
@@ -20,7 +20,7 @@ use yii\base\Event;
  * @property integer $operateModule
  * @property string $operateDescribe
  */
-class OperateLogEvent extends Event
+class OperateRecordEvent extends Event
 {
     /**
      * 事件名称
