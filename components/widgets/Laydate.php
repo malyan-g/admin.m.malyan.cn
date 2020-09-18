@@ -97,6 +97,7 @@ class Laydate extends Widget
                 format : '$this->format',
                 istoday: false,
                 issure: false,
+                theme: 'molv',
                 choose: function(datas){
                     $endDate.min = datas; //开始日选好后，重置结束日的最小日期
                     $endDate.start = datas; //将结束日的初始值设定为开始日
@@ -110,6 +111,7 @@ class Laydate extends Widget
                 format : '$this->format',
                 istoday: false,
                 issure: false,
+                theme: 'molv',
                 choose: function(datas){
                     $startDate.max = datas; //结束日选好后，重置开始日的最大日期
                 }
@@ -163,12 +165,14 @@ EOD;
     private function generateDateJs()
     {
         $dataId = Html::getInputId($this->model, $this->date);
+        $maxDate = date('Y', time());
         $js = <<<EOD
             var $this->date = {
                 elem : '#{$dataId}',
                 type : 'year',
-                min: '2000',
-                max: '2039',
+                theme: 'molv',
+                min: '2019',
+                max: '{$maxDate}',
                 format: '$this->format'
             };
             
