@@ -165,14 +165,11 @@ EOD;
     private function generateDateJs()
     {
         $dataId = Html::getInputId($this->model, $this->date);
-        $maxDate = date('Y', time());
         $js = <<<EOD
             var $this->date = {
                 elem : '#{$dataId}',
                 type : 'year',
-                theme: 'molv',
-                min: '2019',
-                max: '{$maxDate}'
+                theme: 'molv'
             };
             
             laydate.render($this->date);
