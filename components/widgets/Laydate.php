@@ -56,7 +56,7 @@ class Laydate extends Widget
     /**
      * @var string
      */
-    public $format = 'yyyy-MM-dd';
+    public $format = 'YYYY-MM-DD';
 
     /**
      * @var string
