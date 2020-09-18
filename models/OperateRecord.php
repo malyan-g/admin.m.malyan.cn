@@ -118,7 +118,7 @@ class OperateRecord extends \yii\db\ActiveRecord
     public static function record(OperateLogEvent $event)
     {
         try{
-            $model = new OperateLog();
+            $model = new OperateRecord();
             $model->operate_id = $event->operateId;
             $model->type = $event->operateType;
             $model->module = $event->operateModule;
