@@ -8,8 +8,6 @@
 
 namespace app\components\behaviors;
 
-
-use app\models\OperateRecord;
 use yii\base\Behavior;
 use app\models\OperateRecord;
 use app\components\events\OperateRecordEvent;
