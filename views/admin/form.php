@@ -2,6 +2,7 @@
 
 use yii\helpers\Url;
 use app\models\AuthItem;
+use app\models\Admin;
 use app\components\helpers\Html;
 use app\components\widgets\ActiveForm;
 
@@ -19,6 +20,7 @@ $this->title = Yii::t('common', $isNewRecord ? 'Create Title' : 'Update Title') 
 <?= $form->field($model, 'mobile', ['enableAjaxValidation' => true]) ?>
 <?= $form->field($model, 'email', ['enableAjaxValidation' => true]) ?>
 <?= $form->field($model, 'role')->dropDownList(AuthItem::roleArray(), ['prompt' => '请选择']) ?>
+<?= $form->field($model, 'status_code')->dropDownList(Admin::$statusCodeArray, ['prompt' => '请选择']) ?>
 <div class="form-group">
     <?= Html::hiddenInput(null, $model->id, ['id' => Html::getInputId($model, 'id')]) ?>
     <?= Html::submitButton(Yii::t('common', $isNewRecord ? 'Create' : 'Update'), ['class' => $isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
