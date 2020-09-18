@@ -116,6 +116,8 @@ class CustPayment extends \yii\db\ActiveRecord
             'admin_id' => '收费员ID',
             'create_date' => '创建时间',
             'update_date' => '更新时间',
+            'startDate' => '开始日期',
+            'endDate' => '结束日期'
         ];
     }
 }

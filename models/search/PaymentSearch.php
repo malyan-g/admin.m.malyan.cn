@@ -14,8 +14,8 @@ use yii\data\ActiveDataProvider;
  */
 class PaymentSearch extends CustPayment
 {
-    public $year;
-    public $yearArray = [];
+    public $startDate;
+    public $endDate;
 
     /**
      * @inheritdoc
