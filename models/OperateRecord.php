@@ -16,7 +16,7 @@ use app\components\events\OperateLogEvent;
  * @property integer $ip
  * @property integer $created_at
  */
-class OperateLog extends \yii\db\ActiveRecord
+class OperateRecord extends \yii\db\ActiveRecord
 {
     /**
      * 操作类型
