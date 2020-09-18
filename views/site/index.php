@@ -18,7 +18,7 @@ $this->title = 'My Admin 登录信息';
     <div class="profile-info-row">
         <div class="profile-info-name"> 姓名  </div>
         <div class="profile-info-value">
-            <span><?= Html::encode($model->username) ?></span>
+            <span><?= Html::encode($model->real_name) ?></span>
         </div>
     </div>
     <div class="profile-info-row">
