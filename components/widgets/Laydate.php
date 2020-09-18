@@ -192,7 +192,7 @@ EOD;
             'inputOptions' => [
                 'class' => 'form-control',
                 'placeholder' => '选择年份',
-                'value' => $this->model->$date ? date($this->formFormat, $this->model->$date) : ''
+                'value' => $this->model->$date
             ]
         ])->label($this->label);
     }
