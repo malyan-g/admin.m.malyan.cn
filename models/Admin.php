@@ -130,6 +130,8 @@ class Admin extends ActiveRecord implements IdentityInterface
         if($this->isNewRecord){
             $this->create_admin_id =Yii::$app->user->id;
             $this->create_date = time();
+        }else{
+            $this->update_date = time();
         }
         if($this->password){
             $this->setPassword($this->password);
