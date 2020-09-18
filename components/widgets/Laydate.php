@@ -115,8 +115,8 @@ class Laydate extends Widget
                 }
             };
             
-            laydate.render($startDate);
-            laydate.render($endDate);
+            laydate($startDate);
+            laydate($endDate);
 EOD;
         $this->view->registerJsFile('@web/js/laydate/laydate.js');
         $this->view->registerJs($js);
@@ -172,7 +172,7 @@ EOD;
                 format: '$this->format'
             };
             
-            laydate.render($this->date);
+            laydate($this->date);
 EOD;
         $this->view->registerJsFile('@web/js/laydate/laydate.js');
         $this->view->registerJs($js);
