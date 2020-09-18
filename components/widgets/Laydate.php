@@ -163,13 +163,13 @@ EOD;
     private function generateDateJs()
     {
         $dataId = Html::getInputId($this->model, $this->date);
-        $showTime = $this->format == 'YYYY-MM-DD hh:mm:ss' ? 'true' : 'false';
+        $showTime = $this->format == 'YYYY' ? 'true' : 'false';
         $js = <<<EOD
             var $this->date = {
                 elem : '#{$dataId}',
                 type : 'datetime',
-                min: '2000-01-01',
-                max: '2099-12-31',
+                min: '2000',
+                max: '2039',
                 format: '$this->format',
                 istoday: false,
                 issure: $showTime,
