@@ -22,7 +22,7 @@ class AdminSearch extends Admin
     public function rules()
     {
         return [
-            [['create_admin_id', 'mobile', 'status'], 'integer'],
+            [['create_admin_id', 'mobile', 'status_code'], 'integer'],
             [['username'], 'string', 'max' => 20],
             [['role'], 'string', 'max' => 64],
             [['real_name'], 'string', 'min'=>2, 'max' => 4],
@@ -31,7 +31,7 @@ class AdminSearch extends Admin
             [['email'], 'string', 'max' => 50],
             [['email'], 'email'],
             [['create_admin_id'], 'in', 'range' => array_keys(Admin::adminArray())],
-            [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
+            [['status_code'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
             [['role'], 'in', 'range' => array_keys(AuthItem::roleArray())],
         ];
     }
@@ -71,7 +71,7 @@ class AdminSearch extends Admin
             'mobile' => $this->mobile,
             'email' => $this->email,
             'create_admin_id' => $this->create_admin_id,
-            'status' => $this->status
+            'status_code' => $this->status_code
         ]);
 
         if($role = $this->role){
