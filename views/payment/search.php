@@ -9,7 +9,7 @@ use app\components\widgets\ActiveForm;
 /* @var $searchModel \app\models\search\PaymentSearch */
 ?>
 <?php $form = ActiveForm::begin(['module' => ActiveForm::TYPE_SEARCH]) ?>
-<?=  Laydate::widget(['form' => $form, 'searchType' => false, 'model' => $searchModel, 'label' => '缴费年份', 'date' => 'cust_year', 'formFormat' => 'Y', 'format' => 'YYYY']) ?>
+<?=  Laydate::widget(['form' => $form, 'searchType' => false, 'model' => $searchModel, 'label' => '缴费年份', 'date' => 'cust_year', 'formFormat' => 'Y', 'format' => 'yyyy']) ?>
 <?=  Laydate::widget(['form' => $form, 'model' => $searchModel, 'label' => '缴费日期', 'startDate' => 'startDate', 'endDate' => 'endDate']) ?>
 <br>
 <?= $form->field($searchModel, 'cust_area') ?>
