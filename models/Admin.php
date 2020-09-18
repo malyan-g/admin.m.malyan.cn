@@ -81,7 +81,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             [['password_hash'], 'string', 'max' => 255],
             [['email'], 'string', 'max' => 50],
             [['password'], 'string', 'min' => 8, 'max' => 20],
-            [['real_name'], 'string', 'min'=>2, 'max' => 4],
+            [['real_name'], 'string', 'min'=>2, 'max' => 6],
             [['email'], 'email'],
             [['password'], 'match', 'pattern' => MatchHelper::$password, 'message' => '{attribute}只能为字母和数字。'],
             [['real_name'], 'match', 'pattern' => MatchHelper::$chinese, 'message' => '{attribute}只能为汉字。'],
