@@ -22,7 +22,7 @@ class AdminSearch extends Admin
     public function rules()
     {
         return [
-            [['create_id', 'mobile', 'status'], 'integer'],
+            [['create_admin_id', 'mobile', 'status'], 'integer'],
             [['username'], 'string', 'max' => 20],
             [['role'], 'string', 'max' => 64],
             [['real_name'], 'string', 'min'=>2, 'max' => 4],
@@ -30,7 +30,7 @@ class AdminSearch extends Admin
             [['mobile'], 'match', 'pattern' => MatchHelper::$mobile, 'message' => '{attribute}格式不正确。'],
             [['email'], 'string', 'max' => 50],
             [['email'], 'email'],
-            [['create_id'], 'in', 'range' => array_keys(Admin::adminArray())],
+            [['create_admin_id'], 'in', 'range' => array_keys(Admin::adminArray())],
             [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
             [['role'], 'in', 'range' => array_keys(AuthItem::roleArray())],
         ];
@@ -70,7 +70,7 @@ class AdminSearch extends Admin
             'real_name' => $this->real_name,
             'mobile' => $this->mobile,
             'email' => $this->email,
-            'create_id' => $this->create_id,
+            'create_admin_id' => $this->create_admin_id,
             'status' => $this->status
         ]);
 
