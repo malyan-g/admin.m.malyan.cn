@@ -23,7 +23,7 @@ class PaymentSearch extends CustPayment
     public function rules()
     {
         return [
-            [['admin_id', 'create_date'], 'integer'],
+            [['cust_year', 'admin_id', 'create_date'], 'integer'],
             [['cust_area'], 'string', 'max' => 20],
             [['cust_address'], 'string', 'max' => 200],
             [['payment_method'], 'in', 'range' => array_keys(self::$paymentMethodArray)],
