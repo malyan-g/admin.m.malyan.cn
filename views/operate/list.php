@@ -1,7 +1,7 @@
 <?php
 
 use app\models\Admin;
-use app\models\OperateLog;
+use app\models\OperateRecord;
 use app\components\widgets\GridView;
 
 /* @var $dataProvider \yii\data\ActiveDataProvider */
@@ -17,8 +17,8 @@ $this->params['breadcrumbs'][] = $this->title;
         ['class' => 'yii\grid\CheckboxColumn'],
         'id',
         'operate_id',
-        ['attribute' => 'type', 'format' => ['array', OperateLog::typeArray()]],
-        ['attribute' => 'module', 'format' => ['array', OperateLog::moduleArray()]],
+        ['attribute' => 'type', 'format' => ['array', OperateRecord::typeArray()]],
+        ['attribute' => 'module', 'format' => ['array', OperateRecord::moduleArray()]],
         'describe:truncate',
         ['attribute' => 'admin_id', 'format' => ['array', Admin::adminArray()]],
         'ip:ip',
