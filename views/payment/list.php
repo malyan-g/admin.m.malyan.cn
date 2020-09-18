@@ -26,6 +26,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ['attribute' => 'status_code', 'format' => ['array', CustPayment::$statusCodeArray]],
         ['attribute' => 'admin_id', 'format' => ['array', Admin::adminArray()]],
         'payment_date:datetime',
-        'create_date:datetime'
+        'create_date:datetime',
+        'update_date:datetime'
     ]
 ]) ?>
