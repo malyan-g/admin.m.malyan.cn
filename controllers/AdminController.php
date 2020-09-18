@@ -79,18 +79,11 @@ class AdminController extends Controller
     public function actionDelete()
     {
         $model = $this->findModel();
-        $authAssignment = AuthAssignment::findOne(['admin_id' => $model->id]);
-        $trans = Yii::$app->db->beginTransaction();
-        try{
-            $model->delete();
-            if($authAssignment){
-                $authAssignment->delete();
-            }
-            $trans->commit();
+        $model->status_code = Admin::STATUS_DELETE;
+        if($model->save()){
             $this->alert(Yii::t('common','Delete Successfully'), self::ALERT_SUCCESS);
             $this->operateId = $model->id;
-        }catch (\Exception $e){
-            $trans->rollBack();
+        }else{
             $this->alert(Yii::t('common','Delete Failure'));
         }
         return $this->redirect(Yii::$app->request->referrer);
@@ -106,9 +99,10 @@ class AdminController extends Controller
     }
 
     /**
-     * 保存
-     * @param bool $isCreate
-     * @return string|\yii\web\Response
+     *  保存
+     * @param bool $isNewRecord
+     * @return array|string|Response
+     * @throws \yii\db\Exception
      * @throws \yii\web\NotFoundHttpException
      */
     private function save($isNewRecord = true)

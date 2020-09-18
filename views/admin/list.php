@@ -23,9 +23,9 @@ $this->params['breadcrumbs'][] = $this->title;
         'real_name',
         'mobile:mobile',
         'email:email',
-        ['attribute' => 'create_id', 'format' => ['array', $searchModel::adminArray()]],
-        ['attribute' => 'status', 'format' => ['array', $searchModel::$statusArray]],
-        'created_at:datetime',
+        ['attribute' => 'create_admin_id', 'format' => ['array', $searchModel::adminArray()]],
+        ['attribute' => 'status_code', 'format' => ['array', $searchModel::$statusArray]],
+        'create_date:datetime',
         ['class' => 'app\components\grid\ActionColumn', 'module' => Yii::t('module', 'Admin')]
     ]
 ]) ?>

@@ -32,10 +32,16 @@ class Admin extends ActiveRecord implements IdentityInterface
      * 正常
      */
     const STATUS_ACTIVE = 1;
+
     /**
      * 禁用
      */
     const STATUS_DISABLE = 2;
+
+    /**
+     * 删除
+     */
+    const STATUS_DELETE = 3;
 
     public $role;
     public $password;
@@ -158,7 +164,6 @@ class Admin extends ActiveRecord implements IdentityInterface
         $userId = Yii::$app->user->id;
         $loginRecord = LoginRecord::find()->where(['admin_id' => $userId])->orderBy(['login_date' => SORT_DESC])->limit(1)->one();
         $role = AuthAssignment::find()->select('item_name')->where(['admin_id' => $userId])->scalar();
-        var_dump($loginRecord);
         // 记录上次登录记录
         $session = Yii::$app->session;
         $session->set('admin_username', Yii::$app->user->identity->username);
@@ -168,9 +173,6 @@ class Admin extends ActiveRecord implements IdentityInterface
 
         // 记录本次登录
         $model = new LoginRecord();
-        $model->admin_id = $userId;
-        $model->login_date = time();
-        $model->login_ip = ip2long(Yii::$app->request->userIP);
         $model->save();
     }
 
