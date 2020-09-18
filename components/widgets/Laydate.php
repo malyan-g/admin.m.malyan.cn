@@ -98,7 +98,7 @@ class Laydate extends Widget
                 istoday: false,
                 issure: false,
                 theme: 'molv',
-                choose: function(datas){
+                done: function(datas){
                     $endDate.min = datas; //开始日选好后，重置结束日的最小日期
                     $endDate.start = datas; //将结束日的初始值设定为开始日
                 }
@@ -112,7 +112,7 @@ class Laydate extends Widget
                 istoday: false,
                 issure: false,
                 theme: 'molv',
-                choose: function(datas){
+                done: function(datas){
                     $startDate.max = datas; //结束日选好后，重置开始日的最大日期
                 }
             };
