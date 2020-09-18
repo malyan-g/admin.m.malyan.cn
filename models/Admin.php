@@ -174,7 +174,7 @@ class Admin extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['id' => $id, 'status_code' => self::STATUS_ACTIVE]);
     }
 
     /**
@@ -193,7 +193,7 @@ class Admin extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]]);
+        return static::findOne(['username' => $username, 'status_code' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]]);
     }
 
     /**
@@ -210,7 +210,7 @@ class Admin extends ActiveRecord implements IdentityInterface
 
         return static::findOne([
             'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
+            'status_code' => self::STATUS_ACTIVE,
         ]);
     }
 
