@@ -87,7 +87,7 @@ class Admin extends ActiveRecord implements IdentityInterface
             [['real_name'], 'match', 'pattern' => MatchHelper::$chinese, 'message' => '{attribute}只能为汉字。'],
             [['mobile'], 'match', 'pattern' => MatchHelper::$mobile, 'message' => '{attribute}格式不正确的。'],
             [['username', 'mobile', 'email'], 'unique'],
-            [['status_code'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
+            [['status_code'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE, self::STATUS_DELETE]],
         ];
     }
 
