@@ -22,7 +22,7 @@ class OperateSearch extends OperateRecord
     public function rules()
     {
         return [
-            [['type', 'module', 'admin_id'], 'integer'],
+            [['type', 'module', 'admin_id', 'created_at'], 'integer'],
             [['startDate', 'endDate'], 'date', 'format' => 'php:Y-m-d', 'message'=>'{attribute}不符合格式。']
         ];
     }
