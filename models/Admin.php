@@ -169,7 +169,7 @@ class Admin extends ActiveRecord implements IdentityInterface
         $role = AuthAssignment::find()->select('item_name')->where(['admin_id' => $userId])->scalar();
         // 记录上次登录记录
         $session = Yii::$app->session;
-        $session->set('admin_username', Yii::$app->user->identity->username);
+        $session->set('real_name', Yii::$app->user->identity->real_name);
         $session->set('admin_role', $role);
         $session->set('login_date', $loginRecord ? $loginRecord->login_date : null);
         $session->set('login_ip', $loginRecord ? $loginRecord->login_ip : null);

@@ -12,9 +12,7 @@ use Yii;
 use yii\base\Model;
 
 /**
- * This is the model class for table "{{%area}}".
- *
- * @property string $username
+ * @property string $real_name
  * @property string $role
  * @property string $lastTime
  * @property string $lastIp
@@ -27,7 +25,7 @@ use yii\base\Model;
  */
 class System extends Model
 {
-    public $username;
+    public $real_name;
     public $role;
     public $lastTime;
     public $lastIp;
@@ -44,7 +42,7 @@ class System extends Model
     public function attributeLabels()
     {
         return [
-            'username' => '账号',
+            'real_name' => '姓名',
             'role' => '角色',
             'lastTime' => '上次登录时间',
             'lastIp' => '上次登录IP ',
@@ -65,7 +63,7 @@ class System extends Model
         $session = Yii::$app->session;
         $lastAt = $session->get('login_date');
         $lastIp = $session->get('login_ip');
-        $this->username = $session->get('admin_username');
+        $this->real_name = $session->get('real_name');
         $this->role = $session->get('admin_role');
         $this->lastTime = $lastAt ? date('Y-m-d H:i:s', $lastAt) : '';
         $this->lastIp = $lastIp ? long2ip($lastIp): '';
