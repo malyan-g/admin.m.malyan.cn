@@ -13,13 +13,17 @@ use yii\data\ActiveDataProvider;
  */
 class OperateSearch extends OperateRecord
 {
+    public $startDate;
+    public $endDate;
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['type', 'module', 'admin_id'], 'integer']
+            [['type', 'module', 'admin_id'], 'integer'],
+            [['startDate', 'endDate'], 'date', 'format' => 'php:Y-m-d', 'message'=>'{attribute}不符合格式。']
         ];
     }
 
@@ -57,6 +61,20 @@ class OperateSearch extends OperateRecord
             'module' => $this->module,
             'admin_id' => $this->admin_id
         ]);
+
+        if(empty($params['OperateSearch']['startDate']) && empty($params['OperateSearch']['endDate'])){
+            $this->startDate = date('Y-m-d', strtotime('-1 day'));
+            $this->endDate = date('Y-m-d', time());
+        }
+
+        // 创建时间
+        if($this->startDate){
+            $query->andFilterWhere(['>=', self::tableName() . '.created_at', strtotime($this->startDate)]);
+        }
+
+        if($this->endDate){
+            $query->andFilterWhere(['<=', self::tableName() . '.created_at', strtotime($this->endDate) + 86400]);
+        }
 
         return $dataProvider;
     }
