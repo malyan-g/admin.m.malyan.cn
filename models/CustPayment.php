@@ -23,6 +23,60 @@ use Yii;
 class CustPayment extends \yii\db\ActiveRecord
 {
     /**
+     * 现金
+     */
+    const PAYMENT_XJ = 1;
+
+    /**
+     * 微信
+     */
+    const PAYMENT_WX = 2;
+
+    /**
+     * 支付宝
+     */
+    const PAYMENT_ZFB = 3;
+
+    /**
+     * 未收取
+     */
+    const STATUS_NOT_COLLECTED = 0;
+
+    /**
+     * 已缴费
+     */
+    const STATUS_CHARGE = 1;
+
+    /**
+     * 未缴费
+     */
+    const STATUS_NOT_CHARGE= 2;
+
+    /**
+     * 空置房
+     */
+    const STATUS_VACANT_HOUSE = 3;
+
+    /**
+     * 切断供暖
+     */
+    const STATUS_CUT_HEATING = 4;
+
+    public static $paymentMethodArray = [
+        self::PAYMENT_XJ => '现金',
+        self::PAYMENT_WX => '微信',
+        self::PAYMENT_ZFB => '支付宝'
+    ];
+
+    public static $statusCodeArray = [
+        self::STATUS_NOT_COLLECTED => '未收取',
+        self::STATUS_CHARGE => '已缴费',
+        self::STATUS_NOT_CHARGE => '未缴费',
+        self::STATUS_VACANT_HOUSE => '空置房',
+        self::PAYMENT_ZFB => '切断供暖'
+    ];
+
+    /**
      * @inheritdoc
      */
     public static function tableName()

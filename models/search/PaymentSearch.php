@@ -4,35 +4,31 @@ namespace app\models\search;
 
 use yii\base\Model;
 use yii\db\ActiveQuery;
-use app\models\Admin;
-use app\models\AuthItem;
+use app\models\CustPayment;
 use yii\helpers\ArrayHelper;
 use yii\data\ActiveDataProvider;
-use app\components\helpers\MatchHelper;
 
 /**
  * Class PaymentSearch
  * @package app\models\search
  */
-class PaymentSearch extends Admin
+class PaymentSearch extends CustPayment
 {
+    public $year;
+    public $yearArray = [];
+
     /**
      * @inheritdoc
      */
     public function rules()
     {
         return [
-            [['create_id', 'mobile', 'status'], 'integer'],
-            [['username'], 'string', 'max' => 20],
-            [['role'], 'string', 'max' => 64],
-            [['real_name'], 'string', 'min'=>2, 'max' => 4],
-            [['real_name'], 'match', 'pattern' => MatchHelper::$chinese, 'message' => '{attribute}只能为汉字。'],
-            [['mobile'], 'match', 'pattern' => MatchHelper::$mobile, 'message' => '{attribute}格式不正确。'],
-            [['email'], 'string', 'max' => 50],
-            [['email'], 'email'],
-            [['create_id'], 'in', 'range' => array_keys(Admin::adminArray())],
-            [['status'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
-            [['role'], 'in', 'range' => array_keys(AuthItem::roleArray())],
+            [['admin_id', 'create_date'], 'integer'],
+            [['cust_area'], 'string', 'max' => 20],
+            [['cust_address'], 'string', 'max' => 200],
+            [['payment_method'], 'in', 'range' => array_keys(self::$paymentMethodArray)],
+            [['status_code'], 'in', 'range' => array_keys(self::$statusCodeArray)],
+            [['startDate', 'endDate'], 'date', 'format' => 'php:Y-m-d', 'message'=>'{attribute}不符合格式。']
         ];
     }
 
@@ -66,20 +62,27 @@ class PaymentSearch extends Admin
         }
 
         $query->andFilterWhere([
-            'username' => $this->username,
-            'real_name' => $this->real_name,
-            'mobile' => $this->mobile,
-            'email' => $this->email,
-            'create_id' => $this->create_id,
-            'status' => $this->status
+            'payment_method' => $this->payment_method,
+            'status_code' => $this->status_code,
+            'admin_id' => $this->admin_id
         ]);
 
-        if($role = $this->role){
-            $query->joinWith(['roleName' => function(ActiveQuery $query) use($role){
-                $query->andFilterWhere(['item_name' => $role]);
-            }]);
+        if($this->cust_area){
+            $query->andFilterWhere(['like', 'cust_area', $this->cust_area]);
         }
 
+        if($this->cust_area){
+            $query->andFilterWhere(['like', 'cust_address', $this->cust_address]);
+        }
+
+        // 创建时间
+        if($this->startDate){
+            $query->andFilterWhere(['>=', self::tableName() . '.create_date', strtotime($this->startDate)]);
+        }
+
+        if($this->endDate){
+            $query->andFilterWhere(['<=', self::tableName() . '.create_date', strtotime($this->endDate) + 86400]);
+        }
 
         return $dataProvider;
     }
