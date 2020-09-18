@@ -49,7 +49,7 @@ class OperateRecord extends \yii\db\ActiveRecord
      */
     public static function tableName()
     {
-        return '{{%operate_log}}';
+        return '{{%operate_record}}';
     }
 
     /**
