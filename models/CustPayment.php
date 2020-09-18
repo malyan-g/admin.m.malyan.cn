@@ -113,7 +113,7 @@ class CustPayment extends \yii\db\ActiveRecord
             'payment_date' => '缴费时间',
             'payment_method' => '缴费方式',
             'status_code' => '缴费状态',
-            'admin_id' => '收费员ID',
+            'admin_id' => '收费员',
             'create_date' => '创建时间',
             'update_date' => '更新时间',
             'startDate' => '开始日期',
