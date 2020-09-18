@@ -172,8 +172,7 @@ EOD;
                 type : 'year',
                 theme: 'molv',
                 min: '2019',
-                max: '{$maxDate}',
-                format: '$this->format'
+                max: '{$maxDate}'
             };
             
             laydate.render($this->date);
