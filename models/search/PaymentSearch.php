@@ -62,6 +62,7 @@ class PaymentSearch extends CustPayment
         }
 
         $query->andFilterWhere([
+            'cust_year' => $this->cust_year,
             'payment_method' => $this->payment_method,
             'status_code' => $this->status_code,
             'admin_id' => $this->admin_id
@@ -77,11 +78,11 @@ class PaymentSearch extends CustPayment
 
         // 创建时间
         if($this->startDate){
-            $query->andFilterWhere(['>=', self::tableName() . '.create_date', strtotime($this->startDate)]);
+            $query->andFilterWhere(['>=', 'payment_date', strtotime($this->startDate)]);
         }
 
         if($this->endDate){
-            $query->andFilterWhere(['<=', self::tableName() . '.create_date', strtotime($this->endDate) + 86400]);
+            $query->andFilterWhere(['<=', 'payment_date', strtotime($this->endDate) + 86400]);
         }
 
         return $dataProvider;

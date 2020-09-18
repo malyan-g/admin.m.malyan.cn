@@ -10,7 +10,7 @@ use app\components\widgets\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(['module' => ActiveForm::TYPE_SEARCH]) ?>
 <?= $form->field($searchModel, 'cust_year') ?>
-<?=  Laydate::widget(['form' => $form, 'searchType' => false, 'model' => $searchModel, 'label' => '缴费年份', 'date' => 'cust_date']) ?>
+<?=  Laydate::widget(['form' => $form, 'searchType' => false, 'model' => $searchModel, 'label' => '缴费年份', 'date' => 'cust_year']) ?>
 <?=  Laydate::widget(['form' => $form, 'model' => $searchModel, 'label' => '缴费日期', 'startDate' => 'startDate', 'endDate' => 'endDate']) ?>
 <br>
 <?= $form->field($searchModel, 'cust_area') ?>
