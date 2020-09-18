@@ -189,6 +189,7 @@ EOD;
             ],
             'inputOptions' => [
                 'class' => 'form-control',
+                'autocomplete' => 'off',
                 'placeholder' => '选择年份',
                 'value' => $this->model->$date
             ]
