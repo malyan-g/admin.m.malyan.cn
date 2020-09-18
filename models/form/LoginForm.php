@@ -64,7 +64,7 @@ class LoginForm extends Model
                 $this->addError($attribute, '用户名或密码错误。');
             }
 
-            if(!$user || $user->status !== Admin::STATUS_ACTIVE){
+            if(!$user || $user->status_code !== Admin::STATUS_ACTIVE){
                 $this->addError($attribute, '此用户已被禁用。');
             }
         }
