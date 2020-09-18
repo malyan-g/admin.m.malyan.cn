@@ -194,6 +194,6 @@ EOD;
                 'placeholder' => '选择年份',
                 'value' => $this->model->$date ? date($this->formFormat, $this->model->$date) : ''
             ]
-        ])->label(false);
+        ])->label($this->label);
     }
 }
