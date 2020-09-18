@@ -56,7 +56,7 @@ class Laydate extends Widget
     /**
      * @var string
      */
-    public $format = 'YYYY-MM-DD';
+    public $format = 'yyyy-MM-dd';
 
     /**
      * @var string
@@ -115,8 +115,8 @@ class Laydate extends Widget
                 }
             };
             
-            laydates($startDate);
-            laydates($endDate);
+            laydate.render($startDate);
+            laydate.render($endDate);
 EOD;
         $this->view->registerJsFile('@web/js/laydates/laydate.js');
         $this->view->registerJs($js);
