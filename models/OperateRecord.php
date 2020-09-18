@@ -5,7 +5,7 @@ namespace app\models;
 use Yii;
 use app\components\events\OperateLogEvent;
 /**
- * This is the model class for table "{{%operate_log}}".
+ * This is the model class for table "{{%operate_record}}".
  *
  * @property integer $id
  * @property integer $operate_id

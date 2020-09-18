@@ -2,10 +2,9 @@
 
 namespace app\models\search;
 
-use app\models\OperateRecord;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
-use app\models\OperateLog;
+use app\models\OperateRecord;
 use yii\data\ActiveDataProvider;
 
 /**
