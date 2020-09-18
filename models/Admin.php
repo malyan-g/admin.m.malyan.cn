@@ -154,7 +154,7 @@ class Admin extends ActiveRecord implements IdentityInterface
      */
     public static function adminArray()
     {
-        return self::find()->select('real_name')->indexBy('id')->asArray()->column();
+        return self::find()->select('real_name')->where(['status_code' => array_keys(self::$statusCodeArray)])->indexBy('id')->asArray()->column();
     }
 
     /**

@@ -46,7 +46,7 @@ class PaymentSearch extends CustPayment
      */
     public function search(Array $params)
     {
-        $query = self::find()->joinWith('roleName');
+        $query = self::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

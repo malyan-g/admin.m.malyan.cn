@@ -31,7 +31,7 @@ class AdminSearch extends Admin
             [['email'], 'string', 'max' => 50],
             [['email'], 'email'],
             [['create_admin_id'], 'in', 'range' => array_keys(Admin::adminArray())],
-            [['status_code'], 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DISABLE]],
+            [['status_code'], 'in', 'range' => array_keys(self::$statusCodeArray)],
             [['role'], 'in', 'range' => array_keys(AuthItem::roleArray())],
         ];
     }

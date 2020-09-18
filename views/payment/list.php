@@ -1,12 +1,11 @@
 <?php
 
 use app\models\Admin;
-use app\models\OperateRecord;
 use app\models\CustPayment;
 use app\components\widgets\GridView;
 
 /* @var $dataProvider \yii\data\ActiveDataProvider */
-/* @var $searchModel \app\models\search\OperateSearch */
+/* @var $searchModel \app\models\search\PaymentSearch */
 
 $this->title = Yii::t('module', 'Payment') . Yii::t('common', 'List Title');
 $this->params['breadcrumbs'][] = $this->title;
