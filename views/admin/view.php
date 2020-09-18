@@ -16,7 +16,7 @@ $this->title = Yii::t('module', 'Admin') . Yii::t('common', 'View Title');
         'real_name',
         'mobile',
         'email:email',
-        ['attribute' => 'status', 'format' => ['array', $model::$statusCodeArray]],
+        ['attribute' => 'status_code', 'format' => ['array', $model::$statusCodeArray]],
         'create_date:datetime'
     ]
 ]) ?>
