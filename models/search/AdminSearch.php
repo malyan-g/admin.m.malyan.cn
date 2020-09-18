@@ -71,8 +71,10 @@ class AdminSearch extends Admin
             'mobile' => $this->mobile,
             'email' => $this->email,
             'create_admin_id' => $this->create_admin_id,
-            'status_code' => $this->status_code
+            'status_code' => $this->status_code ? $this->status_code : [self::STATUS_ACTIVE, self::STATUS_DISABLE]]
         ]);
+
+
 
         if($role = $this->role){
             $query->joinWith(['roleName' => function(ActiveQuery $query) use($role){
