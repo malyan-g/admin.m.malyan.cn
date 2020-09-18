@@ -156,7 +156,7 @@ class AdminController extends Controller
     {
         $id = (int) Yii::$app->request->get('id', 0);
         if($id){
-            if(($model = Admin::findOne($id)) !== null){
+            if(($model = Admin::find()->where(['id' => $id, 'status_cd' => [Admin::STATUS_ACTIVE, Admin::STATUS_DISABLE]])->one()) !== null){
                 return $model;
             }
         }
