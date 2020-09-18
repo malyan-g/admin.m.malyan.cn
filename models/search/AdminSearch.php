@@ -71,7 +71,7 @@ class AdminSearch extends Admin
             'mobile' => $this->mobile,
             'email' => $this->email,
             'create_admin_id' => $this->create_admin_id,
-            'status_code' => $this->status_code ? $this->status_code : [self::STATUS_ACTIVE, self::STATUS_DISABLE]]
+            'status_code' => $this->status_code ? $this->status_code : [self::STATUS_ACTIVE, self::STATUS_DISABLE]
         ]);
 
 
