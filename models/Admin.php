@@ -155,17 +155,21 @@ class Admin extends ActiveRecord implements IdentityInterface
      */
     public static function loginRecord()
     {
-        $model = self::findOne(Yii::$app->user->id);
-        $role = AuthAssignment::find()->select('item_name')->where(['admin_id' => Yii::$app->user->id])->scalar();
-
+        $userId = Yii::$app->user->id;
+        $loginRecord = LoginRecord::find()->where(['admin_id' => $userId])->orderBy(['login_date' => SORT_DESC])->limit(1)->one();
+        $role = AuthAssignment::find()->select('item_name')->where(['admin_id' => $userId])->scalar();
         // 记录上次登录记录
         $session = Yii::$app->session;
-        $session->set('admin_username', $model->username);
+        $session->set('admin_username', Yii::$app->user->identity->username);
         $session->set('admin_role', $role);
-        $session->set('admin_last_at', $model->last_at);
-        $session->set('admin_last_ip', $model->last_ip);
-        $model->last_at = time();
-        $model->last_ip = ip2long(Yii::$app->request->userIP);
+        $session->set('last_date', $loginRecord ? $loginRecord->login_date : '无');
+        $session->set('last_ip', $loginRecord ? $loginRecord->last_ip : '无');
+
+        // 记录本次登录
+        $model = new LoginRecord();
+        $model->admin_id = $userId;
+        $model->login_date = time();
+        $model->login_ip = ip2long(Yii::$app->request->userIP);
         $model->save();
     }
 
