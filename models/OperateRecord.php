@@ -36,7 +36,7 @@ class OperateRecord extends \yii\db\ActiveRecord
     const EVENT_MODULE_ROLE = 2; // 角色管理
     const EVENT_MODULE_PERMISSION = 3; // 权限管理
     const EVENT_MODULE_MENU = 4; // 菜单管理
-    const EVENT_MODULE_USER = 5; // 用户管理
+    const EVENT_MODULE_PAYMENT = 5; // 收费管理
     const EVENT_MODULE_NAV = 6; // 导航栏管理
     const EVENT_MODULE_BANNER = 7; // 轮播图管理
     const EVENT_MODULE_ARTICLE = 8; // 文章管理
