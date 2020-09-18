@@ -13,8 +13,8 @@ use app\components\widgets\ActiveForm;
 <?= $form->field($searchModel, 'mobile') ?>
 <?= $form->field($searchModel, 'email') ?>
 <?= $form->field($searchModel, 'role')->dropDownList(AuthItem::roleArray(), ['prompt' => Yii::t('common', 'All')]) ?>
-<?= $form->field($searchModel, 'create_id')->dropDownList($searchModel::adminArray(), ['prompt' => Yii::t('common', 'All')]) ?>
-<?= $form->field($searchModel, 'status')->dropDownList($searchModel::$statusArray, ['prompt' => Yii::t('common', 'All')]) ?>
+<?= $form->field($searchModel, 'create_admin_id')->dropDownList($searchModel::adminArray(), ['prompt' => Yii::t('common', 'All')]) ?>
+<?= $form->field($searchModel, 'status_code')->dropDownList($searchModel::$statusArray, ['prompt' => Yii::t('common', 'All')]) ?>
 <div class="form-group">
     <?= Html::submitButton(Yii::t('common', 'Search'), ['class' => 'btn btn-info mr-5']) ?>
 </div>
