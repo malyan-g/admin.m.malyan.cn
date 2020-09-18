@@ -97,10 +97,9 @@ class Laydate extends Widget
                 format : '$this->format',
                 istoday: false,
                 issure: false,
-                theme: 'molv',
-                done: function(value, date, endDate){
-                    $endDate.min = value; //开始日选好后，重置结束日的最小日期
-                    $endDate.start = value; //将结束日的初始值设定为开始日
+                choose: function(datas){
+                    $endDate.min = datas; //开始日选好后，重置结束日的最小日期
+                    $endDate.start = datas; //将结束日的初始值设定为开始日
                 }
             };
             
@@ -111,16 +110,15 @@ class Laydate extends Widget
                 format : '$this->format',
                 istoday: false,
                 issure: false,
-                theme: 'molv',
-                done: function(value, date, endDate){
-                    $startDate.max = value; //结束日选好后，重置开始日的最大日期
+                choose: function(datas){
+                    $startDate.max = datas; //结束日选好后，重置开始日的最大日期
                 }
             };
             
-            laydate.render($startDate);
-            laydate.render($endDate);
+            laydate($startDate);
+            laydate($endDate);
 EOD;
-        $this->view->registerJsFile('@web/js/laydate/laydate.js');
+        $this->view->registerJsFile('@web/js/laydates/laydate.js');
         $this->view->registerJs($js);
     }
 
