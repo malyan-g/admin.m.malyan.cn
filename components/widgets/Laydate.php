@@ -185,7 +185,7 @@ EOD;
     {
         $date = $this->date;
         return $this->form->field($this->model, $date, [
-            'template' => '{label}{input}<span class="glyphicon glyphicon-calendar form-control-feedback" aria-hidden="true"></span>',
+            'template' => '{label}{input}',
             'options' => [
                 'class' => 'form-group has-feedback'
             ],
