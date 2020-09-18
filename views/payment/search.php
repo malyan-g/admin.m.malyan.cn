@@ -10,7 +10,7 @@ use app\components\widgets\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(['module' => ActiveForm::TYPE_SEARCH]) ?>
 <?= $form->field($searchModel, 'cust_year') ?>
-<?=  Laydate::widget(['form' => $form, 'model' => $searchModel, 'label' => '操作日期', 'startDate' => 'startDate', 'endDate' => 'endDate']) ?>
+<?=  Laydate::widget(['form' => $form, 'model' => $searchModel, 'label' => '缴费日期', 'startDate' => 'startDate', 'endDate' => 'endDate']) ?>
 <?= $form->field($searchModel, 'cust_area') ?>
 <?= $form->field($searchModel, 'cust_address') ?>
 <?= $form->field($searchModel, 'payment_method')->dropDownList(CustPayment::$paymentMethodArray, ['prompt' => Yii::t('common', 'All')]) ?>
