@@ -166,11 +166,10 @@ EOD;
         $js = <<<EOD
             var $this->date = {
                 elem : '#{$dataId}',
-                type : 'datetime',
+                type : 'year',
                 min: '2000',
                 max: '2039',
-                format: '$this->format',
-                istoday: false
+                format: '$this->format'
             };
             
             laydate($this->date);
