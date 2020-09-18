@@ -17,13 +17,12 @@ use app\components\helpers\MatchHelper;
  * @property string $auth_key
  * @property string $password_hash
  * @property string $real_name
- * @property string $mobile
  * @property string $email
- * @property integer $last_at
- * @property integer $last_ip
- * @property integer $create_id
- * @property integer $status
- * @property integer $created_at
+ * @property string $mobile
+ * @property integer $status_code
+ * @property integer $create_admin_id
+ * @property integer $create_date
+ * @property integer $update_date
  * @property string $role
  * @property string $password
  */
@@ -41,7 +40,7 @@ class Admin extends ActiveRecord implements IdentityInterface
     public $role;
     public $password;
     
-    public static $statusArray = [
+    public static $statusCodeArray = [
         self::STATUS_ACTIVE => '正常',
         self::STATUS_DISABLE => '禁用'
     ];
@@ -70,7 +69,7 @@ class Admin extends ActiveRecord implements IdentityInterface
                         }
                     }'
             ],
-            [['create_id', 'mobile', 'last_at', 'last_ip', 'status', 'created_at'], 'integer'],
+            [['create_admin_id', 'mobile', 'status_code', 'create_date'], 'integer'],
             [['username'], 'string', 'max' => 20],
             [['auth_key', 'role', 'password'], 'string', 'max' => 32],
             [['password_hash'], 'string', 'max' => 255],
@@ -96,13 +95,12 @@ class Admin extends ActiveRecord implements IdentityInterface
             'auth_key' => '身份验证码',
             'password_hash' => '密码',
             'real_name' => '真实姓名',
-            'create_id' => '创建人',
-            'mobile' => '手机号',
+            'create_admin_id' => '创建人',
             'email' => '邮箱',
-            'last_at' => '上一次登录时间',
-            'last_ip' => '上一次登录IP',
-            'status' => '状态',
-            'created_at' => '创建时间',
+            'mobile' => '手机号',
+            'status_code' => '状态',
+            'create_date' => '创建时间',
+            'update_date' => '修改时间',
             'password' => '密码',
             'role' => '角色',
         ];
@@ -123,8 +121,8 @@ class Admin extends ActiveRecord implements IdentityInterface
     public function beforeSave($insert)
     {
         if($this->isNewRecord){
-            $this->create_id =Yii::$app->user->id;
-            $this->created_at = time();
+            $this->create_admin_id =Yii::$app->user->id;
+            $this->create_date = time();
         }
         if($this->password){
             $this->setPassword($this->password);
@@ -159,6 +157,7 @@ class Admin extends ActiveRecord implements IdentityInterface
     {
         $model = self::findOne(Yii::$app->user->id);
         $role = AuthAssignment::find()->select('item_name')->where(['admin_id' => Yii::$app->user->id])->scalar();
+
         // 记录上次登录记录
         $session = Yii::$app->session;
         $session->set('admin_username', $model->username);
