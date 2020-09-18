@@ -2,6 +2,7 @@
 
 namespace app\models\search;
 
+use app\models\OperateRecord;
 use yii\base\Model;
 use yii\helpers\ArrayHelper;
 use app\models\OperateLog;
@@ -11,7 +12,7 @@ use yii\data\ActiveDataProvider;
  * Class OperateSearch
  * @package app\models\search
  */
-class OperateSearch extends OperateLog
+class OperateSearch extends OperateRecord
 {
     /**
      * @inheritdoc
