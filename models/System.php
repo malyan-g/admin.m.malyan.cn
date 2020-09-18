@@ -63,8 +63,8 @@ class System extends Model
     public function init()
     {
         $session = Yii::$app->session;
-        $lastAt = $session->get('admin_last_at');
-        $lastIp = $session->get('admin_last_ip');
+        $lastAt = $session->get('login_date');
+        $lastIp = $session->get('login_ip');
         $this->username = $session->get('admin_username');
         $this->role = $session->get('admin_role');
         $this->lastTime = $lastAt ? date('Y-m-d H:i:s', $lastAt) : '';
