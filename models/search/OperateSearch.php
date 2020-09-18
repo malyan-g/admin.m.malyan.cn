@@ -62,10 +62,10 @@ class OperateSearch extends OperateRecord
             'admin_id' => $this->admin_id
         ]);
 
-        if(empty($params['OperateSearch']['startDate']) && empty($params['OperateSearch']['endDate'])){
-            $this->startDate = date('Y-m-d', strtotime('-1 day'));
-            $this->endDate = date('Y-m-d', time());
-        }
+       // if(empty($params['OperateSearch']['startDate']) && empty($params['OperateSearch']['endDate'])){
+           // $this->startDate = date('Y-m-d', strtotime('-1 day'));
+           // $this->endDate = date('Y-m-d', time());
+        //}
 
         // 创建时间
         if($this->startDate){
