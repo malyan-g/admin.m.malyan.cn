@@ -8,5 +8,5 @@ return [
     'Operate' => '操作日志',
     'Payment' => '收费管理',
     'AdminPayment' => '收费员统计',
-    'ChargePayment' => '收费员统计',
+    'Statistics' => '收费员统计',
 ];

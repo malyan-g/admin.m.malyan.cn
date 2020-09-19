@@ -38,16 +38,30 @@ class PaymentController extends Controller
     }
 
     /**
-     * 列表
+     * 收费统计
+     * @return string
+     */
+    public function actionStatistics()
+    {
+        $searchModel = new PaymentSearch();
+        $data = $searchModel->statisticsSearch(Yii::$app->request->queryParams);
+        return $this->render('statistics',[
+            'searchModel'=>$searchModel,
+            'data'=>$data
+        ]);
+    }
+
+    /**
+     * 收费员统计
      * @return string
      */
     public function actionAdminList()
     {
         $searchModel = new PaymentSearch();
-        $dataProvider = $searchModel->adminSearch(Yii::$app->request->queryParams);
-        return $this->render('list',[
+        $data = $searchModel->adminSearch(Yii::$app->request->queryParams);
+        return $this->render('admin-list',[
             'searchModel'=>$searchModel,
-            'dataProvider'=>$dataProvider
+            'data'=>$data
         ]);
     }
 

@@ -4,13 +4,13 @@ use app\models\Admin;
 use app\models\CustPayment;
 use app\components\widgets\GridView;
 
-/* @var $dataProvider \yii\data\ActiveDataProvider */
+/* @var $data */
 /* @var $searchModel \app\models\search\PaymentSearch */
 
 $this->title = Yii::t('module', 'AdminPayment') . Yii::t('common', 'List Title');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $this->render('search', ['searchModel' => $searchModel]) ?>
+<?= $this->render('admin-search', ['searchModel' => $searchModel]) ?>
 <table class="table table-striped table-bordered table-hover dataTable">
     <thead>
         <tr>
