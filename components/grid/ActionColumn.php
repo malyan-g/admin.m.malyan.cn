@@ -16,7 +16,6 @@ class ActionColumn extends \yii\grid\ActionColumn
 {
     public $module;
     public $header = '操作';
-    public $statusCode;
     public $headerOptions = ['class' => 'center'];
     public $contentOptions = ['class' => 'center'];
     public $template = '{view} {update} {delete}';
@@ -45,7 +44,6 @@ class ActionColumn extends \yii\grid\ActionColumn
      */
     protected function initDefaultButton($name, $iconClass, $additionalOptions = [])
     {
-        $statusCode = null;
         if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
             $this->buttons[$name] = function ($url, $model, $key) use ($name, $iconClass, $additionalOptions) {
 
