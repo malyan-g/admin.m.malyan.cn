@@ -44,6 +44,7 @@ class ActionColumn extends \yii\grid\ActionColumn
      */
     protected function initDefaultButton($name, $iconClass, $additionalOptions = [])
     {
+        $statusCode = null;
         if (!isset($this->buttons[$name]) && strpos($this->template, '{' . $name . '}') !== false) {
             $this->buttons[$name] = function ($url, $model, $key) use ($name, $iconClass, $additionalOptions) {
 
@@ -52,8 +53,11 @@ class ActionColumn extends \yii\grid\ActionColumn
                 }
 
                 if(in_array($name, ['charge', 'not-charge', 'vacant-house', 'cut-heating'])){
-                    var_dump($name .'-' .$model->status_code);
-                    if($model->status_code = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
+                    if($model->status_code != false){
+                        $statusCode = $model->status_code;
+                    }
+
+                    if($statusCode = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
                         return '';
                     }
 
