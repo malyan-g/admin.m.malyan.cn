@@ -10,7 +10,7 @@ use app\components\widgets\GridView;
 $this->title = Yii::t('module', 'Statistics') . Yii::t('common', 'List Title');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<?= $this->render('admin-search', ['searchModel' => $searchModel]) ?>
+<?= $this->render('statistics-search', ['searchModel' => $searchModel]) ?>
 <table class="table table-striped table-bordered table-hover dataTable">
     <thead>
     <tr>
