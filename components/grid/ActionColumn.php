@@ -49,6 +49,11 @@ class ActionColumn extends \yii\grid\ActionColumn
                 if(isset($model->visible) && $model->visible){
                     return '';
                 }
+
+                if(in_array($name, ['charge', 'not-charge', 'vacant-house', 'cut-heating'])){
+                    var_dump($model->status_code);
+                }
+
                 switch ($name) {
                     case 'view':
                         $title = '查看' . $this->module;
