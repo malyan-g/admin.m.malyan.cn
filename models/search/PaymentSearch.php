@@ -197,7 +197,7 @@ class PaymentSearch extends CustPayment
         ]);
 
         $payment = $query->select(['admin_id','payment_method','count(id) as num', 'sum(paid_amount) as paid_amount','sum(amount) as amount'])
-            ->groupBy(['payment_method', 'status_cd'])
+            ->groupBy(['payment_method', 'status_code'])
             ->orderBy(['admin_id' => SORT_ASC])
             ->all();
 
