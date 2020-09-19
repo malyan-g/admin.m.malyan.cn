@@ -188,6 +188,31 @@ class PaymentSearch extends CustPayment
         $this->scenario = 'statistics';
         $query = self::find();
 
+        $data = [
+            'year' => 0,
+            'xjNum' => 0,
+            'xjAmount' => 0,
+            'wxNum' => 0,
+            'wxAmount' => 0,
+            'zfbNum' => 0,
+            'zfbAmount' => 0,
+            'notNumber' => 0,
+            'notAmount' => 0,
+            'chargeNumber' => 0,
+            'chargePaidAmount' => 0,
+            'chargeAmount' => 0,
+            'notChargeNumber' => 0,
+            'notChargeAmount' => 0,
+            'vacantHouseNumber' => 0,
+            'vacantHouseAmount' => 0,
+            'cutHeatingNumber' => 0,
+            'cutHeatingPaidAmount' => 0,
+            'cutHeatingAmount' => 0,
+            'totalNum' => 0,
+            'totalPaidAmount' => 0,
+            'totalAmount' => 0
+        ];
+
         $dataProvider = new ActiveDataProvider([
             'query' => $query
         ]);
@@ -195,7 +220,7 @@ class PaymentSearch extends CustPayment
         $this->load($params);
 
         if(!$this->validate()) {
-            return $dataProvider;
+            return $data;
         }
 
         $query->andFilterWhere([
