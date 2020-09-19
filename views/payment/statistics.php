@@ -66,13 +66,13 @@ $this->params['breadcrumbs'][] = $this->title;
             <td class="center" colspan="9">暂无数据</td>
         <?php else: ?>
             <td class="center" rowspan="2" style="vertical-align: middle !important;"><?= $data['xjAmount']?></td>
-            <td class="center" rowspan="2" valign="middle"><?= $data['wxAmount']?></td>
-            <td class="center" rowspan="2" valign="middle"><?= $data['zfbAmount']?></td>
-            <td class="center" rowspan="2" valign="middle"><?= $data['notAmount']?></td>
+            <td class="center" rowspan="2"  style="vertical-align: middle !important;"><?= $data['wxAmount']?></td>
+            <td class="center" rowspan="2"  style="vertical-align: middle !important;"><?= $data['zfbAmount']?></td>
+            <td class="center" rowspan="2"  style="vertical-align: middle !important;"><?= $data['notAmount']?></td>
             <td class="center">应收：<?= $data['chargeAmount']?></td>
-            <td class="center" rowspan="2" valign="middle"><?= $data['notChargeAmount']?></td>
+            <td class="center" rowspan="2"  style="vertical-align: middle !important;"><?= $data['notChargeAmount']?></td>
             <td class="center">应收：<?= $data['vacantHousePaidAmount']?></td>
-            <td class="center" rowspan="2" valign="middle"><?= $data['cutHeatingAmount']?></td>
+            <td class="center" rowspan="2"  style="vertical-align: middle !important;"><?= $data['cutHeatingAmount']?></td>
             <td class="center">应收：<?= $data['totalPaidAmount']?></td>
         <?php endif; ?>
     </tr>
