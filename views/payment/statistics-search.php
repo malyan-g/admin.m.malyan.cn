@@ -10,7 +10,6 @@ use app\components\widgets\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(['module' => ActiveForm::TYPE_SEARCH]) ?>
 <?= $form->field($searchModel, 'cust_year')->dropDownList(CustPayment::getYear(), ['prompt' => Yii::t('common', 'All')]) ?>
-<?=  Laydate::widget(['form' => $form, 'model' => $searchModel, 'label' => '收费日期', 'startDate' => 'startDate', 'endDate' => 'endDate']) ?>
 <div class="form-group">
     <?= Html::submitButton(Yii::t('common', 'Search'), ['class' => 'btn btn-info mr-5']) ?>
 </div>
