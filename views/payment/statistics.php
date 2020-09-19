@@ -78,14 +78,8 @@ $this->params['breadcrumbs'][] = $this->title;
     </tr>
     <?php if($data != null): ?>
         <tr>
-            <td class="center"></td>
-            <td class="center"></td>
-            <td class="center"></td>
-            <td class="center"></td>
             <td class="center">实收：<?= $data['chargeAmount']?></td>
-            <td class="center"></td>
             <td class="center">实收：<?= $data['vacantHouseAmount']?></td>
-            <td class="center"></td>
             <td class="center">实收：<?= $data['totalAmount']?></td>
         </tr>
     <?php endif; ?>
