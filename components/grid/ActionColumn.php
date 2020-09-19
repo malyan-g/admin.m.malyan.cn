@@ -8,8 +8,8 @@
 
 namespace app\components\grid;
 
-use app\models\CustPayment;
 use Yii;
+use app\models\CustPayment;
 use app\components\helpers\Html;
 
 class ActionColumn extends \yii\grid\ActionColumn
@@ -53,6 +53,11 @@ class ActionColumn extends \yii\grid\ActionColumn
 
                 if(in_array($name, ['charge', 'not-charge', 'vacant-house', 'cut-heating'])){
                     if($model->status_code = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
+                        return '';
+                    }
+
+                    if(in_array($model->status_code, [CustPayment::STATUS_CHARGE, CustPayment::STATUS_VACANT_HOUSE, CustPayment::STATUS_VACANT_HOUSE
+                    ])){
                         return '';
                     }
                 }
