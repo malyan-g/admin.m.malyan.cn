@@ -28,18 +28,22 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
     <tr>
-        <? foreach ($data as $key =>$val): ?>
-            <td class="center"><?= $val['realName']?></td>
-            <td class="center"><?= $val['xjNum']?></td>
-            <td class="center"><?= $val['xjAmount']?></td>
-            <td class="center"><?= $val['wxNum']?></td>
-            <td class="center"><?= $val['wxAmount']?></td>
-            <td class="center"><?= $val['zfbNum']?></td>
-            <td class="center"><?= $val['zfbAmount']?></td>
-            <td class="center"><?= $val['totalNumber']?></td>
-            <td class="center"><?= $val['totalPaidAmount']?></td>
-            <td class="center"><?= $val['totalAmount']?></td>
-        <? endforeach; ?>
+        <? if($data == null): ?>
+            <td class="center" colspan="10">暂无数据</td>
+        <? else: ?>
+            <? foreach ($data as $key =>$val): ?>
+                <td class="center"><?= $val['realName']?></td>
+                <td class="center"><?= $val['xjNum']?></td>
+                <td class="center"><?= $val['xjAmount']?></td>
+                <td class="center"><?= $val['wxNum']?></td>
+                <td class="center"><?= $val['wxAmount']?></td>
+                <td class="center"><?= $val['zfbNum']?></td>
+                <td class="center"><?= $val['zfbAmount']?></td>
+                <td class="center"><?= $val['totalNumber']?></td>
+                <td class="center"><?= $val['totalPaidAmount']?></td>
+                <td class="center"><?= $val['totalAmount']?></td>
+            <? endforeach; ?>
+        <? endif; ?>
     </tr>
     </tbody>
 </table>

@@ -32,15 +32,19 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
         <tr>
-            <td class="center"><?= $data['xjNum']?></td>
-            <td class="center"><?= $data['wxNum']?></td>
-            <td class="center"><?= $data['zfbNum']?></td>
-            <td class="center"><?= $data['notNumber']?></td>
-            <td class="center"><?= $data['chargeNumber']?></td>
-            <td class="center"><?= $data['notChargeNumber']?></td>
-            <td class="center"><?= $data['vacantHouseNumber']?></td>
-            <td class="center"><?= $data['cutHeatingNumber']?></td>
-            <td class="center"><?= $data['totalNum']?></td>
+            <? if($data == null): ?>
+                <td class="center" colspan="9">暂无数据</td>
+            <? else: ?>
+                <td class="center"><?= $data['xjNum']?></td>
+                <td class="center"><?= $data['wxNum']?></td>
+                <td class="center"><?= $data['zfbNum']?></td>
+                <td class="center"><?= $data['notNumber']?></td>
+                <td class="center"><?= $data['chargeNumber']?></td>
+                <td class="center"><?= $data['notChargeNumber']?></td>
+                <td class="center"><?= $data['vacantHouseNumber']?></td>
+                <td class="center"><?= $data['cutHeatingNumber']?></td>
+                <td class="center"><?= $data['totalNum']?></td>
+            <? endif; ?>
         </tr>
     </tbody>
     <thead>
@@ -58,26 +62,32 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
     <tr>
-        <td class="center" rowspan="2"><?= $data['xjAmount']?></td>
-        <td class="center" rowspan="2"><?= $data['wxAmount']?></td>
-        <td class="center" rowspan="2"><?= $data['zfbAmount']?></td>
-        <td class="center" rowspan="2"><?= $data['notAmount']?></td>
-        <td class="center">应收：<?= $data['chargeAmount']?></td>
-        <td class="center" rowspan="2"><?= $data['notChargeAmount']?></td>
-        <td class="center">应收：<?= $data['vacantHousePaidAmount']?></td>
-        <td class="center" rowspan="2"><?= $data['cutHeatingAmount']?></td>
-        <td class="center">应收：<?= $data['totalPaidAmount']?></td>
+        <? if($data == null): ?>
+            <td class="center" colspan="9">暂无数据</td>
+        <? else: ?>
+            <td class="center" rowspan="2"><?= $data['xjAmount']?></td>
+            <td class="center" rowspan="2"><?= $data['wxAmount']?></td>
+            <td class="center" rowspan="2"><?= $data['zfbAmount']?></td>
+            <td class="center" rowspan="2"><?= $data['notAmount']?></td>
+            <td class="center">应收：<?= $data['chargeAmount']?></td>
+            <td class="center" rowspan="2"><?= $data['notChargeAmount']?></td>
+            <td class="center">应收：<?= $data['vacantHousePaidAmount']?></td>
+            <td class="center" rowspan="2"><?= $data['cutHeatingAmount']?></td>
+            <td class="center">应收：<?= $data['totalPaidAmount']?></td>
+        <? endif; ?>
     </tr>
-    <tr>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center"></td>
-        <td class="center">实收：<?= $data['chargeAmount']?></td>
-        <td class="center"></td>
-        <td class="center">实收：<?= $data['vacantHouseAmount']?></td>
-        <td class="center"></td>
-        <td class="center">实收：<?= $data['totalAmount']?></td>
-    </tr>
+    <? if($data != null): ?>
+        <tr>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center"></td>
+            <td class="center">实收：<?= $data['chargeAmount']?></td>
+            <td class="center"></td>
+            <td class="center">实收：<?= $data['vacantHouseAmount']?></td>
+            <td class="center"></td>
+            <td class="center">实收：<?= $data['totalAmount']?></td>
+        </tr>
+    <? endif; ?>
     </tbody>
 </table>
