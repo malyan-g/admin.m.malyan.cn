@@ -19,15 +19,15 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <thead>
         <tr>
-            <th class="center">现金缴费人数</th>
-            <th class="center">微信缴费人数</th>
-            <th class="center">支付宝缴费人数</th>
-            <th class="center">未收取总人数</th>
-            <th class="center">已缴费总人数</th>
-            <th class="center">未缴费总人数</th>
-            <th class="center">空置房总人数</th>
-            <th class="center">切断供暖总人数</th>
-            <th class="center">总人数</th>
+            <th class="center">现金缴费数</th>
+            <th class="center">微信缴费数</th>
+            <th class="center">支付宝缴费数</th>
+            <th class="center">未收取总数</th>
+            <th class="center">已缴费总数</th>
+            <th class="center">未缴费总数</th>
+            <th class="center">空置房总数</th>
+            <th class="center">切断供暖总数</th>
+            <th class="center">总数</th>
         </tr>
     </thead>
     <tbody>
