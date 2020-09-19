@@ -24,6 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         ['attribute' => 'admin_id', 'format' => ['array', Admin::adminArray()]],
         'payment_date:datetime',
         'create_date:datetime',
-        'update_date:datetime'
+        'update_date:datetime',
+        ['class' => 'app\components\grid\ActionColumn', 'module' => Yii::t('module', 'Permission'), 'template' => '{charge}{not-charge}{vacant-house}{cut-heating}']
     ]
 ]) ?>

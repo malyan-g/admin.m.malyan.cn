@@ -28,6 +28,10 @@ class ActionColumn extends \yii\grid\ActionColumn
         $this->initDefaultButton('update', 'pencil');
         $this->initDefaultButton('delete', 'trash');
         $this->initDefaultButton('auth', 'cog');
+        $this->initDefaultButton('charge', 'cog');
+        $this->initDefaultButton('not-charge', 'cog');
+        $this->initDefaultButton('vacant-house', 'cog');
+        $this->initDefaultButton('cut-heating', 'cog');
     }
 
     /**
@@ -60,6 +64,22 @@ class ActionColumn extends \yii\grid\ActionColumn
                         break;
                     case 'auth':
                         $title = '权限分配';
+                        $this->buttonOptions = ['class' => 'orange'];
+                        break;
+                    case 'charge':
+                        $title = '确认缴费';
+                        $this->buttonOptions = ['class' => 'green'];
+                        break;
+                    case 'not-charge':
+                        $title = '拒绝缴费';
+                        $this->buttonOptions = ['class' => 'red'];
+                        break;
+                    case 'vacant-house':
+                        $title = '空置房办理';
+                        $this->buttonOptions = ['class' => 'blue'];
+                        break;
+                    case 'cut-heating':
+                        $title = '切断供暖';
                         $this->buttonOptions = ['class' => 'orange'];
                         break;
                     default:
