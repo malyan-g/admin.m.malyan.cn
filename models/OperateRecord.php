@@ -37,12 +37,6 @@ class OperateRecord extends \yii\db\ActiveRecord
     const EVENT_MODULE_PERMISSION = 3; // 权限管理
     const EVENT_MODULE_MENU = 4; // 菜单管理
     const EVENT_MODULE_PAYMENT = 5; // 收费管理
-    const EVENT_MODULE_NAV = 6; // 导航栏管理
-    const EVENT_MODULE_BANNER = 7; // 轮播图管理
-    const EVENT_MODULE_ARTICLE = 8; // 文章管理
-    const EVENT_MODULE_ALBUM = 9; // 相册管理
-    const EVENT_MODULE_PICTURE = 10; // 相片管理
-    const EVENT_MODULE_LINKS = 11; //友情链接管理
 
     /**
      * @inheritdoc
@@ -110,6 +104,7 @@ class OperateRecord extends \yii\db\ActiveRecord
             self::EVENT_MODULE_MENU => '菜单管理',
             self::EVENT_MODULE_ROLE => '角色管理',
             self::EVENT_MODULE_PERMISSION => '权限管理',
+            self::EVENT_MODULE_PAYMENT => '收费管理'
         ];
     }
 
