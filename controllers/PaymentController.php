@@ -38,6 +38,20 @@ class PaymentController extends Controller
     }
 
     /**
+     * 列表
+     * @return string
+     */
+    public function actionAdminList()
+    {
+        $searchModel = new PaymentSearch();
+        $dataProvider = $searchModel->adminSearch(Yii::$app->request->queryParams);
+        return $this->render('list',[
+            'searchModel'=>$searchModel,
+            'dataProvider'=>$dataProvider
+        ]);
+    }
+
+    /**
      * 收费
      * @return string
      * @throws \yii\web\NotFoundHttpException
