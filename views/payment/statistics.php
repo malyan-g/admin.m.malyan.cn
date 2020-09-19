@@ -35,15 +35,15 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php if($data == null): ?>
                 <td class="center" colspan="9">暂无数据</td>
             <?php else: ?>
-                <td class="center"><?= $data['xjNum']?></td>
-                <td class="center"><?= $data['wxNum']?></td>
-                <td class="center"><?= $data['zfbNum']?></td>
-                <td class="center"><?= $data['notNumber']?></td>
-                <td class="center"><?= $data['chargeNumber']?></td>
-                <td class="center"><?= $data['notChargeNumber']?></td>
-                <td class="center"><?= $data['vacantHouseNumber']?></td>
-                <td class="center"><?= $data['cutHeatingNumber']?></td>
-                <td class="center"><?= $data['totalNum']?></td>
+                <td class="center"><?= $data['xjNum']?>（户）</td>
+                <td class="center"><?= $data['wxNum']?>（户）</td>
+                <td class="center"><?= $data['zfbNum']?>（户）</td>
+                <td class="center"><?= $data['notNumber']?>（户）</td>
+                <td class="center"><?= $data['chargeNumber']?>（户）</td>
+                <td class="center"><?= $data['notChargeNumber']?>（户）</td>
+                <td class="center"><?= $data['vacantHouseNumber']?>（户）</td>
+                <td class="center"><?= $data['cutHeatingNumber']?>（户）</td>
+                <td class="center"><?= $data['totalNum']?>（户）</td>
             <?php endif; ?>
         </tr>
     </tbody>
