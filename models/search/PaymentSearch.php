@@ -201,7 +201,7 @@ class PaymentSearch extends CustPayment
             ->all();
 
         $data = [
-            'year' => 0,
+            'year' => $this->cust_year,
             'xjNum' => 0,
             'xjAmount' => 0,
             'wxNum' => 0,
