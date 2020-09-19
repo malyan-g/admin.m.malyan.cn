@@ -136,6 +136,7 @@ class PaymentSearch extends CustPayment
         $payment = $query->select(['admin_id','payment_method','count(id) as num', 'sum(paid_amount) as paid_amount','sum(amount) as amount'])
             ->groupBy(['admin_id', 'payment_method'])
             ->orderBy(['admin_id' => SORT_ASC])
+            ->asArray()
             ->all();
 
         $data = [];
@@ -200,7 +201,7 @@ class PaymentSearch extends CustPayment
             ->groupBy(['payment_method', 'status_code'])
             ->asArray()
             ->all();
-var_dump($payment);die;
+
         $data = [
             'year' => $this->cust_year,
             'xjNum' => 0,
