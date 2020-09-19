@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <th class="center">未缴费总人数（户）</th>
             <th class="center">空置房总人数（户）</th>
             <th class="center">切断供暖总人数（户）</th>
-            <th class="center">应收总人数（户）</th>
+            <th class="center">总人数（户）</th>
         </tr>
     </thead>
     <tbody>
