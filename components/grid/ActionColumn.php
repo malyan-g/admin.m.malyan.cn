@@ -56,7 +56,7 @@ class ActionColumn extends \yii\grid\ActionColumn
                     if($model->status_code != false){
                         $statusCode = $model->status_code;
                     }
-
+                    var_dump($statusCode,$model->status_code);
                     if($statusCode = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
                         return '';
                     }
