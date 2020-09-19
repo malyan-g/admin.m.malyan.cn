@@ -14,7 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <table class="table table-striped table-bordered table-hover dataTable">
     <thead>
     <tr>
-        <th class="center" colspan="9"><?= $data['year']?>年份</th>
+        <th class="center" colspan="9"><?= $data['year']?>年份收费统计</th>
     </tr>
     </thead>
     <thead>
@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <?php if($data == null): ?>
             <td class="center" colspan="9">暂无数据</td>
         <?php else: ?>
-            <td class="center" rowspan="2" valign="middle"><?= $data['xjAmount']?></td>
+            <td class="center" rowspan="2" style="vertical-align: middle !important;"><?= $data['xjAmount']?></td>
             <td class="center" rowspan="2" valign="middle"><?= $data['wxAmount']?></td>
             <td class="center" rowspan="2" valign="middle"><?= $data['zfbAmount']?></td>
             <td class="center" rowspan="2" valign="middle"><?= $data['notAmount']?></td>
