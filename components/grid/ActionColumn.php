@@ -16,6 +16,7 @@ class ActionColumn extends \yii\grid\ActionColumn
 {
     public $module;
     public $header = '操作';
+    public $statusCode;
     public $headerOptions = ['class' => 'center'];
     public $contentOptions = ['class' => 'center'];
     public $template = '{view} {update} {delete}';
@@ -54,10 +55,10 @@ class ActionColumn extends \yii\grid\ActionColumn
 
                 if(in_array($name, ['charge', 'not-charge', 'vacant-house', 'cut-heating'])){
                     if($model->status_code != false){
-                        $statusCode = $model->status_code;
+                        $this->statusCode = $model->status_code;
                     }
-                    var_dump($statusCode,$model->status_code);
-                    if($statusCode = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
+                    var_dump($this->statusCode,$model->status_code);
+                    if($this->statusCode = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
                         return '';
                     }
 
