@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
         <tr>
-            <? if($data == null): ?>
+            <?php if($data == null): ?>
                 <td class="center" colspan="9">暂无数据</td>
-            <? else: ?>
+            <?php else: ?>
                 <td class="center"><?= $data['xjNum']?></td>
                 <td class="center"><?= $data['wxNum']?></td>
                 <td class="center"><?= $data['zfbNum']?></td>
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td class="center"><?= $data['vacantHouseNumber']?></td>
                 <td class="center"><?= $data['cutHeatingNumber']?></td>
                 <td class="center"><?= $data['totalNum']?></td>
-            <? endif; ?>
+            <?php endif; ?>
         </tr>
     </tbody>
     <thead>
@@ -62,9 +62,9 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
     <tr>
-        <? if($data == null): ?>
+        <?php if($data == null): ?>
             <td class="center" colspan="9">暂无数据</td>
-        <? else: ?>
+        <?php else: ?>
             <td class="center" rowspan="2"><?= $data['xjAmount']?></td>
             <td class="center" rowspan="2"><?= $data['wxAmount']?></td>
             <td class="center" rowspan="2"><?= $data['zfbAmount']?></td>
@@ -74,9 +74,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <td class="center">应收：<?= $data['vacantHousePaidAmount']?></td>
             <td class="center" rowspan="2"><?= $data['cutHeatingAmount']?></td>
             <td class="center">应收：<?= $data['totalPaidAmount']?></td>
-        <? endif; ?>
+        <?php endif; ?>
     </tr>
-    <? if($data != null): ?>
+    <?php if($data != null): ?>
         <tr>
             <td class="center"></td>
             <td class="center"></td>
@@ -88,6 +88,6 @@ $this->params['breadcrumbs'][] = $this->title;
             <td class="center"></td>
             <td class="center">实收：<?= $data['totalAmount']?></td>
         </tr>
-    <? endif; ?>
+    <?php endif; ?>
     </tbody>
 </table>

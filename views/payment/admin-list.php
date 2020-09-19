@@ -28,10 +28,10 @@ $this->params['breadcrumbs'][] = $this->title;
     </thead>
     <tbody>
     <tr>
-        <? if($data == null): ?>
+        <?php if($data == null): ?>
             <td class="center" colspan="10">暂无数据</td>
-        <? else: ?>
-            <? foreach ($data as $key =>$val): ?>
+        <?php else: ?>
+            <?php foreach ($data as $key =>$val): ?>
                 <td class="center"><?= $val['realName']?></td>
                 <td class="center"><?= $val['xjNum']?></td>
                 <td class="center"><?= $val['xjAmount']?></td>
@@ -42,8 +42,8 @@ $this->params['breadcrumbs'][] = $this->title;
                 <td class="center"><?= $val['totalNumber']?></td>
                 <td class="center"><?= $val['totalPaidAmount']?></td>
                 <td class="center"><?= $val['totalAmount']?></td>
-            <? endforeach; ?>
-        <? endif; ?>
+            <?php endforeach; ?>
+        <?php endif; ?>
     </tr>
     </tbody>
 </table>
