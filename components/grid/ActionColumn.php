@@ -52,6 +52,7 @@ class ActionColumn extends \yii\grid\ActionColumn
                 }
 
                 if(in_array($name, ['charge', 'not-charge', 'vacant-house', 'cut-heating'])){
+                    var_dump($model->status_code,$name);
                     if($model->status_code = CustPayment::STATUS_NOT_COLLECTED && $name == 'cut-heating'){
                         return '';
                     }
