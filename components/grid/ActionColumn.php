@@ -28,9 +28,9 @@ class ActionColumn extends \yii\grid\ActionColumn
         $this->initDefaultButton('update', 'pencil');
         $this->initDefaultButton('delete', 'trash');
         $this->initDefaultButton('auth', 'cog');
-        $this->initDefaultButton('charge', 'user-plus');
-        $this->initDefaultButton('not-charge', 'user-times');
-        $this->initDefaultButton('vacant-house', 'pause-circle-o');
+        $this->initDefaultButton('charge', 'check');
+        $this->initDefaultButton('not-charge', 'close');
+        $this->initDefaultButton('vacant-house', 'exclamation-triangle');
         $this->initDefaultButton('cut-heating', 'cut');
     }
 
