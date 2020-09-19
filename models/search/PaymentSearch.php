@@ -87,7 +87,7 @@ class PaymentSearch extends CustPayment
             $query->andFilterWhere(['like', 'cust_area', $this->cust_area]);
         }
 
-        if($this->cust_area){
+        if($this->cust_address){
             $query->andFilterWhere(['like', 'cust_address', $this->cust_address]);
         }
 
