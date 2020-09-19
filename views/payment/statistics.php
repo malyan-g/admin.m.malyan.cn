@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <th class="center">未缴费总数</th>
             <th class="center">空置房总数</th>
             <th class="center">切断供暖总数</th>
-            <th class="center">总数</th>
+            <th class="center">总缴费数</th>
         </tr>
     </thead>
     <tbody>
@@ -57,7 +57,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <th class="center">未缴总金额</th>
         <th class="center">空置房总金额</th>
         <th class="center">切断供暖总金额</th>
-        <th class="center">总金额</th>
+        <th class="center">总缴费金额</th>
     </tr>
     </thead>
     <tbody>
