@@ -120,4 +120,18 @@ class CustPayment extends \yii\db\ActiveRecord
             'endDate' => '结束日期'
         ];
     }
+
+    /**
+     * @return array
+     */
+    public static function getYear()
+    {
+        $start = 2019;
+        $end = date('Y', time());
+        $data = [];
+        for ($i = $start; $i <= $end; $i++){
+            $data[$i] = $i . '年';
+        }
+        return $data;
+    }
 }
