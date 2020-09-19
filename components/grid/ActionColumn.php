@@ -28,10 +28,10 @@ class ActionColumn extends \yii\grid\ActionColumn
         $this->initDefaultButton('update', 'pencil');
         $this->initDefaultButton('delete', 'trash');
         $this->initDefaultButton('auth', 'cog');
-        $this->initDefaultButton('charge', 'cog');
-        $this->initDefaultButton('not-charge', 'cog');
-        $this->initDefaultButton('vacant-house', 'cog');
-        $this->initDefaultButton('cut-heating', 'cog');
+        $this->initDefaultButton('charge', 'user-plus');
+        $this->initDefaultButton('not-charge', 'user-times');
+        $this->initDefaultButton('vacant-house', 'pause-circle-o');
+        $this->initDefaultButton('cut-heating', 'cut');
     }
 
     /**
