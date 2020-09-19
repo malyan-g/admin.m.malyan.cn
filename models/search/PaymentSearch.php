@@ -105,21 +105,18 @@ class PaymentSearch extends CustPayment
 
     /**
      * @param array $params
-     * @return array|ActiveDataProvider
+     * @return array|null
      */
     public function adminSearch(Array $params)
     {
         $this->scenario = 'admin';
         $query = self::find();
 
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query
-        ]);
-
+        $this->cust_year = date('Y', time());
         $this->load($params);
 
         if(!$this->validate()) {
-            return $dataProvider;
+            return null;
         }
 
         $query->andFilterWhere([
@@ -181,46 +178,18 @@ class PaymentSearch extends CustPayment
 
     /**
      * @param array $params
-     * @return array|ActiveDataProvider
+     * @return array|null
      */
     public function statisticsSearch(Array $params)
     {
         $this->scenario = 'statistics';
         $query = self::find();
-
-        $data = [
-            'year' => 0,
-            'xjNum' => 0,
-            'xjAmount' => 0,
-            'wxNum' => 0,
-            'wxAmount' => 0,
-            'zfbNum' => 0,
-            'zfbAmount' => 0,
-            'notNumber' => 0,
-            'notAmount' => 0,
-            'chargeNumber' => 0,
-            'chargePaidAmount' => 0,
-            'chargeAmount' => 0,
-            'notChargeNumber' => 0,
-            'notChargeAmount' => 0,
-            'vacantHouseNumber' => 0,
-            'vacantHouseAmount' => 0,
-            'cutHeatingNumber' => 0,
-            'cutHeatingPaidAmount' => 0,
-            'cutHeatingAmount' => 0,
-            'totalNum' => 0,
-            'totalPaidAmount' => 0,
-            'totalAmount' => 0
-        ];
-
-        $dataProvider = new ActiveDataProvider([
-            'query' => $query
-        ]);
+        $this->cust_year = date('Y', time());
 
         $this->load($params);
 
         if(!$this->validate()) {
-            return $data;
+            return null;
         }
 
         $query->andFilterWhere([
@@ -305,6 +274,7 @@ class PaymentSearch extends CustPayment
             $data['totalPaidAmount'] += $val['paid_amount'];
             $data['totalAmount'] += $val['amount'];
         }
+
 
         return $data;
     }
